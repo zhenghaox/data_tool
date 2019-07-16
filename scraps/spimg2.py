@@ -10,15 +10,17 @@ def find_last(string, str):
             return last_position
         last_position = position
 
-path='/data_1/weizhang/data/义乌/330700000000330782000115020002/result/123/classify'
-srcimgpath='/data_1/weizhang/data/义乌/330700000000330782000115020002/result/123/mark'
-with open('/data_1/weizhang/data/义乌/330700000000330782000115020002/result/123/jslist') as jslist:
-    lines=jslist.readlines()
+path='/data_1/weizhang/data/红绿灯标注/done/违法_红绿灯_20190604_part1/classify'
+srcimgpath='/data_1/weizhang/data/红绿灯标注/done/违法_红绿灯_20190604_part1/mark'
+jspath='/data_1/weizhang/data/红绿灯标注/done/违法_红绿灯_20190604_part1/json'
+lines=os.listdir(jspath)
+# with open('/data_1/weizhang/data/义乌/330700000000330782000115020002/result/123/jslist') as jslist:
+#     lines=jslist.readlines()
 for line in lines:
     ww=line.split('/')
-    name = ww[-1][:-1][:ww[-1].find('.')]
+    name = ww[-1][:ww[-1].find('.')]
     save_name=name.strip()
-    jsfile=open(line[:-1])
+    jsfile=open(jspath+'/'+line)
     jsf=json.load(jsfile)
     obj=jsf['objects']
     print srcimgpath+'/'+name+'.jpg'

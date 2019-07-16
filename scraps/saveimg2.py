@@ -8,8 +8,8 @@ def find_last(string, str):
         if position == -1:
             return last_position
         last_position = position
-path='/data_1/weizhang/data/SZ/1119/16252select/'
-with open('/data_1/weizhang/data/SZ/1119/170_16252_500') as jslist:
+path='/data_1/weizhang/data/安全带打电话/done/all/classify_person/call_train/'
+with open('/data_1/weizhang/data/安全带打电话/done/all/classify_person/calling_list_shufed.list') as jslist:
     lines=jslist.readlines()
 for line in lines:
     name = line[:-1][find_last(line[:-1], '/') + 1:-4]

@@ -21,8 +21,8 @@ import csv,os
 from contextlib import closing
 
 #修改你的cs文件名
-csv_path="/home/xuzhenghao/下载/201904170952_suzhou.csv"
-download_path="/data_1/weizhang/data/SZ/0417/"
+csv_path="/home/xuzhenghao/下载/201906201702_suzhou_hongdeng-算法1人工2.csv"
+download_path="/data_1/weizhang/data/错图积累/苏州/0620/1/"
 
 #http请求超时设置
 timeout = 200

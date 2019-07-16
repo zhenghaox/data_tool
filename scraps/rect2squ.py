@@ -1,17 +1,19 @@
 # coding:utf-8
 import cv2
 import numpy as np
-img_path='/data_1/weizhang/data/湖州/testclassify/er0227list'
+img_path='/data_1/weizhang/data/红绿灯分类测试/0711/data/train_aug_2.list'
 #word={}
 with open(img_path) as f:
     lines=f.readlines()
 for line in lines:
     word=line.split()
-    print word[0]
     src_img = cv2.imread(word[0])
     if src_img is None:
         continue
     src_h, src_w, src_c = src_img.shape
+    if src_h == src_w:
+        continue
+    print word[0]
     dst_w = max(src_h,src_w)
     dst_img = np.zeros((dst_w, dst_w,3),dtype=np.uint8)
     src_center_x = src_w*0.5

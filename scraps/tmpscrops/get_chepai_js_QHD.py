@@ -17,8 +17,8 @@ def list_all_files(now_dir):
             if not os.path.isfile(i):
                 i = now_dir + '/' + i
                 list_all_files(i)     
-src_path='/data_1/weizhang/data/SZ/0417'
-fpl=open('/data_1/weizhang/data/SZ/0417_img_plate_js','w')
+src_path='/data_1/weizhang/data/0529指标/测试集/nc'
+fpl=open('/data_1/weizhang/data/0529指标/测试集/nc_img_plate_js','w')
 list_all_files(src_path)
 
 for line in list:
@@ -27,5 +27,9 @@ for line in list:
     img_name=line[index1+1:]
     print img_name
     chepai=img_name.split('_')[1]
+    #chepai=img_name.split('_')[7]
     sbbh=img_name.split('_')[0]
-    fpl.write(line+' '+chepai+' '+sbbh+'\n')
+    label=img_name.split('_')[-1][:-4]
+    #fpl.write(line+' '+chepai+' '+sbbh+'\n')
+    #fpl.write(line+' '+chepai+' '+label+'\n')
+    fpl.write(line+' '+chepai+' '+sbbh+' '+label+'\n')

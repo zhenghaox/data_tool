@@ -10,11 +10,11 @@ def find_last(string, str):
             return last_position
         last_position = position
 
-saveimgpath='/data_1/weizhang/data/all/cut/960_img/'
-savelabelpath='/data_1/weizhang/data/all/cut/960_label/'
+saveimgpath='/data_1/weizhang/data/测试集/cuted/保定/0816up1/cut/img/'
+savelabelpath='/data_1/weizhang/data/测试集/cuted/保定/0816up1/cut/label/'
 srcimgpath='/data_1/weizhang/data/all/ori/mark/'
-sizes=960
-with open('/data_1/weizhang/data/all/ori/jslist') as jslist:
+sizes=320
+with open('/data_1/weizhang/data/测试集/cuted/保定/0816up1/jslist') as jslist:
     lines=jslist.readlines()
 for line in lines:
     name=''

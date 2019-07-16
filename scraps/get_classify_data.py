@@ -13,14 +13,16 @@ def find_last(string, str):
             return last_position
         last_position = position
 
-path='/data_1/weizhang/data/义乌/0122/classify'
-srcimgpath='/data_1/weizhang/data/义乌/0122/mark'
-with open('/data_1/weizhang/data/义乌/0122/jslist') as jslist:
-    lines=jslist.readlines()
+path='/data_1/weizhang/data/红绿灯标注/done/违法_红绿灯_20190604_part1/classify'
+srcimgpath='/data_1/weizhang/data/红绿灯标注/done/违法_红绿灯_20190604_part1/mark'
+jspath='/data_1/weizhang/data/红绿灯标注/done/违法_红绿灯_20190604_part1/json'
+lines=os.listdir(jspath)
+# with open('/data_1/weizhang/data/义乌/0122/jslist') as jslist:
+#     lines=jslist.readlines()
 for line in lines:
     ww=line.split('/')
-    name = ww[-1][:-1][:ww[-1].find('.')]
-    jsfile=open(line[:-1])
+    name = ww[-1][:ww[-1].find('.')]
+    jsfile=open(jspath+'/'+line)
     jsf=json.load(jsfile)
     obj=jsf['objects']
     print srcimgpath+'/'+name+'.jpg'
@@ -29,6 +31,30 @@ for line in lines:
         continue
     imgsz=[img.shape[1],img.shape[0]]
     num=0
+
+    if not os.path.exists(path+'/0/'):
+        os.mkdir(path+'/0/')
+    if not os.path.exists(path+'/1/'):
+        os.mkdir(path+'/1/')
+    if not os.path.exists(path+'/2/'):
+        os.mkdir(path+'/2/')
+    if not os.path.exists(path+'/3/'):
+        os.mkdir(path+'/3/')
+    if not os.path.exists(path+'/4/'):
+        os.mkdir(path+'/4/')
+    if not os.path.exists(path+'/5/'):
+        os.mkdir(path+'/5/')
+    if not os.path.exists(path+'/6/'):
+        os.mkdir(path+'/6/')
+    if not os.path.exists(path+'/7/'):
+        os.mkdir(path+'/7/')
+    if not os.path.exists(path+'/8/'):
+        os.mkdir(path+'/8/')
+    if not os.path.exists(path+'/9/'):
+        os.mkdir(path+'/9/')
+    if not os.path.exists(path+'/11/'):
+        os.mkdir(path+'/11/')
+
     for x in obj:
         num=num+1
         lbrect=x['rect']
