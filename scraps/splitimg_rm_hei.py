@@ -10,30 +10,35 @@ def find_last(string, str):
             return last_position
         last_position = position
 
-saveimgpath='/data_1/weizhang/data/测试集/cuted/保定/0816up1/cut/img/'
-savelabelpath='/data_1/weizhang/data/测试集/cuted/保定/0816up1/cut/label/'
-srcimgpath='/data_1/weizhang/data/all/ori/mark/'
+saveimgpath='/data_1/weizhang/data/all/后加/0808/tmp/img_cut/'
+savelabelpath='/data_1/weizhang/data/all/后加/0808/tmp/txt/'
+srcimgpath='/data_1/weizhang/data/all/后加/0808/tmp/mark/'
+jspath='/data_1/weizhang/data/all/后加/0808/tmp/json'
 sizes=320
-with open('/data_1/weizhang/data/测试集/cuted/保定/0816up1/jslist') as jslist:
-    lines=jslist.readlines()
-for line in lines:
+#with open('/data_1/weizhang/data/测试集/cuted/保定/0816up1/jslist') as jslist:
+#    lines=jslist.readlines()
+lines=os.listdir(jspath)
+for line1 in lines:
+    line=os.path.join(jspath,line1)
     name=''
-    name = line[:-1][find_last(line[:-1], '/') + 1:-9]
-    jsfile=open(line[:-1])
+    name = line[find_last(line[:-1], '/') + 1:-9]
+    jsfile=open(line)
     jsf=json.load(jsfile)
     obj=jsf['objects']
     img=None
     img=cv2.imread(srcimgpath+name+'.jpg')
     if img is None:
         print srcimgpath+name+'.jpg'
-        name = line[:-1][find_last(line[:-1], '/') + 1:-5]
+        name = line[find_last(line[:-1], '/') + 1:-5]
         img=cv2.imread(srcimgpath+name+'.jpg')
         if img is None:
             print srcimgpath+name+'.jpg'
             continue
+    #print line
+    #print name
     name=name.strip()
     imgsz=[img.shape[1],img.shape[0]]
-    #Size=[img.shape[1]/4,img.shape[0]/4]
+    #Size=[img.shape[1],img.shape[0]]
     Size=[sizes,sizes]
     #print imgsz,Size
     MaxlightSize=150
@@ -56,7 +61,8 @@ for line in lines:
                 lb=x['label']
                 if lb == 'hei':
                    continue
-
+                if lbrect[0]<0 or lbrect[1]<0 or lbrect[2] <=0 or lbrect[3] <=0:
+                    continue
                 #if lbrect[2]>lbrect[3]:
                 #    lb=lb+'-heng'
                 #else:
@@ -80,9 +86,14 @@ for line in lines:
             if len(datalist)>0:    
                 #print num
                 savetxt=open(savelabelpath+name+'_'+str(sizes)+'_'+str(i)+'_'+str(j)+'.txt','w') 
-                savetxt.write(str(imgcroped.shape[1])+' '+str(imgcroped.shape[0])+'\n')
-                savetxt.write(str(num)+'\n')
-                for t in range(0,len(datalist)):
+                # savetxt.write(str(imgcroped.shape[1])+' '+str(imgcroped.shape[0])+'\n')
+                # savetxt.write(str(num)+'\n')
+                for datalist_s in datalist:
                     #print datalist[t-1][0]
-                    savetxt.write(datalist[t-1][0]+' '+datalist[t-1][1]+' '+datalist[t-1][2]+' '+datalist[t-1][3]+' '+datalist[t-1][4]+'\n')
+                    savetxt.write('1'+' '+datalist_s[1]+' '+datalist_s[2]+' '+datalist_s[3]+' '+datalist_s[4]+'\n')
                 cv2.imwrite(saveimgpath+name+'_'+str(sizes)+'_'+str(i)+'_'+str(j)+'.jpg',imgcroped)
+
+                # for t in range(0,len(datalist)):
+                #     #print datalist[t-1][0]
+                #     savetxt.write(datalist[t-1][0]+' '+datalist[t-1][1]+' '+datalist[t-1][2]+' '+datalist[t-1][3]+' '+datalist[t-1][4]+'\n')
+                # cv2.imwrite(saveimgpath+name+'_'+str(sizes)+'_'+str(i)+'_'+str(j)+'.jpg',imgcroped)

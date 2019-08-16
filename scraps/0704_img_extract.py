@@ -5,7 +5,7 @@ import random
 import shutil
 
 if __name__ == '__main__':
-    src_dir = '/data_1/weizhang/170/义乌/20181122-义乌/process/1625/'
+    src_dir = '/data_1/weizhang/data/红绿灯标注/0813/0813/'
 
     dir_list = os.listdir(src_dir)
 
@@ -21,7 +21,7 @@ if __name__ == '__main__':
 
     print len(name_list_norepeat), len(name_dir_norepeat)
 
-    out_dir = '/data_1/weizhang/data/义乌/select/20181218'
+    out_dir = '/data_1/weizhang/data/红绿灯标注/0813/select'
 
     for dir_name in name_dir_norepeat:
         dir_name = os.path.join(src_dir, dir_name)
@@ -51,8 +51,8 @@ if __name__ == '__main__':
         while rand_num1 == rand_num2:
             rand_num2 = random.randint(0, len(imgs) - 1)
 
-        shutil.copy(os.path.join(dir_name, imgs[rand_num1]), os.path.join(out_dir, imgs[rand_num1]))
-        shutil.copy(os.path.join(dir_name, imgs[rand_num2]), os.path.join(out_dir, imgs[rand_num2]))
+        shutil.move(os.path.join(dir_name, imgs[rand_num1]), os.path.join(out_dir, imgs[rand_num1]))
+        shutil.move(os.path.join(dir_name, imgs[rand_num2]), os.path.join(out_dir, imgs[rand_num2]))
         # shutil.copy(os.path.join(dir_name, imgs[rand_num3]), os.path.join(out_dir, imgs[rand_num3]))
         # shutil.copy(os.path.join(dir_name, imgs[rand_num3]), os.path.join(out_dir, imgs[rand_num3]))
         # shutil.copy(os.path.join(dir_name, imgs[rand_num5]), os.path.join(out_dir, imgs[rand_num5]))

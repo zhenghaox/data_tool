@@ -13,9 +13,9 @@ def find_last(string, str):
             return last_position
         last_position = position
 
-path='/data_1/weizhang/data/红绿灯标注/done/违法_红绿灯_20190604_part1/classify'
-srcimgpath='/data_1/weizhang/data/红绿灯标注/done/违法_红绿灯_20190604_part1/mark'
-jspath='/data_1/weizhang/data/红绿灯标注/done/违法_红绿灯_20190604_part1/json'
+path='/data_1/weizhang/data/all/后加/0807/all/classify'
+srcimgpath='/data_1/weizhang/data/all/后加/0807/all/mark'
+jspath='/data_1/weizhang/data/all/后加/0807/all/json'
 lines=os.listdir(jspath)
 # with open('/data_1/weizhang/data/义乌/0122/jslist') as jslist:
 #     lines=jslist.readlines()

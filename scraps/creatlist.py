@@ -18,8 +18,8 @@ def list_all_files(now_dir):
             if not os.path.isfile(i):
                 i = now_dir + '/' + i
                 list_all_files(i)     
-src_path='/data_1/weizhang/data/all/ori/neg/xml'
-savetxt=open('/data_1/weizhang/data/all/ori/neg/neg.test','w')
+src_path='/data_1/weizhang/data/all/cut/label_all_fixed'
+savetxt=open('/data_1/weizhang/data/all/cut/train_ori.txt','w')
 list_all_files(src_path)
 
 #savetxt=open('/data_1/weizhang/data/BDdone/up/0225list','w')
@@ -28,4 +28,4 @@ list_all_files(src_path)
 for line in list:
     index=find_last(line,'/')
     name=line[index+1:-4]
-    savetxt.write('img/'+name+'.jpg'+' '+'xml/'+name+'.xml'+'\n')
+    savetxt.write('img_all/'+name+'.jpg'+' '+'label_all_fixed/'+name+'.txt'+'\n')

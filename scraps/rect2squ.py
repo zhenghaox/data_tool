@@ -1,7 +1,7 @@
 # coding:utf-8
 import cv2
 import numpy as np
-img_path='/data_1/weizhang/data/红绿灯分类测试/0711/data/train_aug_2.list'
+img_path='/data_1/weizhang/data/all/后加/0808/违法_红绿灯_20190805/classify.list'
 #word={}
 with open(img_path) as f:
     lines=f.readlines()

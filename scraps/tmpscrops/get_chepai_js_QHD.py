@@ -17,8 +17,8 @@ def list_all_files(now_dir):
             if not os.path.isfile(i):
                 i = now_dir + '/' + i
                 list_all_files(i)     
-src_path='/data_1/weizhang/data/0529指标/测试集/nc'
-fpl=open('/data_1/weizhang/data/0529指标/测试集/nc_img_plate_js','w')
+src_path='/data_1/weizhang/data/常熟/0812/attachments'
+fpl=open('/data_1/weizhang/data/常熟/0812/attachments_img_plate_js','w')
 list_all_files(src_path)
 
 for line in list:

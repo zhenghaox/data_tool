@@ -10,9 +10,9 @@ def find_last(string, str):
             return last_position
         last_position = position
 
-path='/data_1/weizhang/data/红绿灯标注/done/违法_红绿灯_20190604_part1/classify'
-srcimgpath='/data_1/weizhang/data/红绿灯标注/done/违法_红绿灯_20190604_part1/mark'
-jspath='/data_1/weizhang/data/红绿灯标注/done/违法_红绿灯_20190604_part1/json'
+path='/data_1/weizhang/data/all/后加/0808/违法_红绿灯_20190805/classify'
+srcimgpath='/data_1/weizhang/data/all/后加/0808/违法_红绿灯_20190805/mark'
+jspath='/data_1/weizhang/data/all/后加/0808/违法_红绿灯_20190805/json'
 lines=os.listdir(jspath)
 # with open('/data_1/weizhang/data/义乌/330700000000330782000115020002/result/123/jslist') as jslist:
 #     lines=jslist.readlines()
@@ -29,6 +29,9 @@ for line in lines:
         print 'img error!!!'
         continue
     imgsz=[img.shape[1],img.shape[0]]
+    if imgsz[0]==0 or imgsz[1]==0:
+        print 'img size is 0!!!'
+        continue
     num=0
     if not os.path.exists(path+'/0/'):
         os.mkdir(path+'/0/')
@@ -57,6 +60,9 @@ for line in lines:
         num=num+1
         lbrect=x['rect']
         lb=x['label']
+        if lbrect[3]<=0 or lbrect[2]<=0:
+            print 'rect is 0!!!'
+            continue
         img2=img[int(lbrect[1]):int(lbrect[1])+int(lbrect[3]),int(lbrect[0]):int(lbrect[0])+int(lbrect[2]),:]
         if lb=='hong-zhi':
             cv2.imwrite(path+'/2/'+save_name+'_'+str(num)+'.jpg',img2)       

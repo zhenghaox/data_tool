@@ -6,9 +6,9 @@ import cv2
 from itertools import islice
 from xml.dom.minidom import Document
 
-labels='/data_1/weizhang/data/all/ori/neg/label'
+labels='/data_1/weizhang/data/all/cut/label_all'
 #imgpath='/data_1/weizhang/data/BDdone/2018.07.05红绿灯完成/0704up/test/img/'
-xmlpath_new='/data_1/weizhang/data/all/ori/neg/xml/'
+xmlpath_new='/data_1/weizhang/data/all/cut/xml_all/'
 foldername='VOC2007'
 
 
@@ -49,6 +49,7 @@ def insertObject(doc, datas):
     return obj
 
 def create():
+    num=0
     for walk in os.walk(labels):
         for each in walk[2]:
             fidin=open(walk[0] + '/'+ each,'r')
@@ -131,7 +132,12 @@ def create():
                     #annotation.appendChild(insertObject(doc, datas))
                 else:
                     if 5 != len(datas):
-                        print 'bounding box information error'
+                        num=num+1
+                        print 'bounding box information error'+str(num)
+                        continue
+                    if datas[1]>=datas[3] or datas[2]>=datas[4]:
+                        num=num+1
+                        print 'bounding box information error!!'+str(num)
                         continue
                     annotation.appendChild(insertObject(doc, datas))
             try:

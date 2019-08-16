@@ -6,8 +6,8 @@ import shutil
 
 
 def creatlist():
-        srcpath='/data_1/weizhang/data/红绿灯分类测试/0711/data/train_aug_2'
-        savelist='/data_1/weizhang/data/红绿灯分类测试/0711/data/train_aug_2.list'
+        srcpath='/data_1/weizhang/data/all/后加/0808/违法_红绿灯_20190805/classify'
+        savelist='/data_1/weizhang/data/all/后加/0808/违法_红绿灯_20190805/classify.list'
         f=open(savelist,'w')
         filelist=os.listdir(srcpath)
         for line in filelist:
