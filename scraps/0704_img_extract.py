@@ -5,7 +5,7 @@ import random
 import shutil
 
 if __name__ == '__main__':
-    src_dir = '/data_1/weizhang/data/红绿灯标注/0813/0813/'
+    src_dir = '/data_1/weizhang/data/红绿灯标注/0825/南阳/'
 
     dir_list = os.listdir(src_dir)
 
@@ -21,7 +21,7 @@ if __name__ == '__main__':
 
     print len(name_list_norepeat), len(name_dir_norepeat)
 
-    out_dir = '/data_1/weizhang/data/红绿灯标注/0813/select'
+    out_dir = '/data_1/weizhang/data/红绿灯标注/0825/select'
 
     for dir_name in name_dir_norepeat:
         dir_name = os.path.join(src_dir, dir_name)
