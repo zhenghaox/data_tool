@@ -19,6 +19,6 @@ def creatlist(srcpath,savelist):
         return
 
 if __name__ =='__main__':
-    srcpath='/data_1/weizhang/data/越过停止线判断/data/0909/train'
-    savelist='/data_1/weizhang/data/越过停止线判断/data/0909/train.txt'
+    srcpath='/data_1/weizhang/data/越过停止线判断/data/all/train'
+    savelist='/data_1/weizhang/data/越过停止线判断/data/all/train.txt'
     creatlist(srcpath,savelist)

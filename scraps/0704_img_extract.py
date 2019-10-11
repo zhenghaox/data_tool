@@ -5,7 +5,7 @@ import random
 import shutil
 
 if __name__ == '__main__':
-    src_dir = '/data_1/weizhang/data/红绿灯标注/0825/南阳/'
+    src_dir = '/data_1/weizhang/data/错图积累/1010/new/result/result'
 
     dir_list = os.listdir(src_dir)
 
@@ -51,8 +51,8 @@ if __name__ == '__main__':
         while rand_num1 == rand_num2:
             rand_num2 = random.randint(0, len(imgs) - 1)
 
-        shutil.move(os.path.join(dir_name, imgs[rand_num1]), os.path.join(out_dir, imgs[rand_num1]))
-        shutil.move(os.path.join(dir_name, imgs[rand_num2]), os.path.join(out_dir, imgs[rand_num2]))
+        #shutil.move(os.path.join(dir_name, imgs[rand_num1]), os.path.join(out_dir, imgs[rand_num1]))
+        #shutil.move(os.path.join(dir_name, imgs[rand_num2]), os.path.join(out_dir, imgs[rand_num2]))
         # shutil.copy(os.path.join(dir_name, imgs[rand_num3]), os.path.join(out_dir, imgs[rand_num3]))
         # shutil.copy(os.path.join(dir_name, imgs[rand_num3]), os.path.join(out_dir, imgs[rand_num3]))
         # shutil.copy(os.path.join(dir_name, imgs[rand_num5]), os.path.join(out_dir, imgs[rand_num5]))

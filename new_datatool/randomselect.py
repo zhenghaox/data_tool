@@ -4,8 +4,8 @@ import os
 import random
 
 if __name__ == "__main__":
-    srcpath='/data_1/weizhang/data/越过停止线判断/data/0910/train'
-    outpath='/data_1/weizhang/data/越过停止线判断/data/0910/test'
+    srcpath='/data_1/weizhang/data/all/后加/lichao_xiaolan_0919/classify/train'
+    outpath='/data_1/weizhang/data/all/后加/lichao_xiaolan_0919/classify/test'
     if not os.path.exists(outpath):
         os.mkdir(outpath)
     lines=os.listdir(srcpath)

@@ -1,14 +1,15 @@
+#coding=utf-8
 import matplotlib.pyplot as plt
 
 if __name__ == "__main__":
     iterations = []
     losses = []
     accs=[]
-    logfile=open('/data_1/weizhang/train/all/classify/0815_44/log/log-2019-07-18-11-39-35.log')
+    logfile=open('/data_1/weizhang/data/越过停止线判断/train/0919/log/log-2019-09-29-11-38-15.log')
     lines=logfile.readlines()
     for line in lines:
         line.strip()
-        if line.find('Test net output #0: Accuracy1 =') != -1:
+        if line.find('Test net output #0:') != -1:
             words=line.split(' ')
             acc=words[-1]
             accs.append(acc)
@@ -17,5 +18,6 @@ if __name__ == "__main__":
                 words1=line.split(' ')
                 loss=words1[-1]
                 losses.append(loss)
-    plt.plot(losses)
+    #plt.plot(losses)
+    plt.plot(accs)
     plt.show()

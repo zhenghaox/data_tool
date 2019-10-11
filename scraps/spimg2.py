@@ -10,9 +10,9 @@ def find_last(string, str):
             return last_position
         last_position = position
 
-path='/data_1/weizhang/data/all/后加/0808/违法_红绿灯_20190805/classify'
-srcimgpath='/data_1/weizhang/data/all/后加/0808/违法_红绿灯_20190805/mark'
-jspath='/data_1/weizhang/data/all/后加/0808/违法_红绿灯_20190805/json'
+path='/data_1/weizhang/data/all/后加/lichao_xiaolan_0919/classify/train'
+srcimgpath='/data_1/weizhang/data/all/后加/lichao_xiaolan_0919/mark'
+jspath='/data_1/weizhang/data/all/后加/lichao_xiaolan_0919/json'
 lines=os.listdir(jspath)
 # with open('/data_1/weizhang/data/义乌/330700000000330782000115020002/result/123/jslist') as jslist:
 #     lines=jslist.readlines()

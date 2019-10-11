@@ -10,15 +10,16 @@ def find_last(string, str):
             return last_position
         last_position = position
 
-saveimgpath='/data_1/weizhang/data/all/后加/0820/违法_红绿灯_20190813/all/cut/'
-savelabelpath='/data_1/weizhang/data/all/后加/0820/违法_红绿灯_20190813/all/txt/'
-srcimgpath='/data_1/weizhang/data/all/后加/0820/违法_红绿灯_20190813/all/mark/'
-jspath='/data_1/weizhang/data/all/后加/0820/违法_红绿灯_20190813/all/json'
+saveimgpath='/data_1/weizhang/data/all/后加/违法_红绿灯_20190822_OK-已检查/新建文件夹/result/cut/'
+savelabelpath='/data_1/weizhang/data/all/后加/违法_红绿灯_20190822_OK-已检查/新建文件夹/result/txt/'
+srcimgpath='/data_1/weizhang/data/all/后加/违法_红绿灯_20190822_OK-已检查/新建文件夹/result/mark/'
+jspath='/data_1/weizhang/data/all/后加/违法_红绿灯_20190822_OK-已检查/新建文件夹/result/json'
 if not os.path.exists(saveimgpath):
     os.mkdir(saveimgpath)
 if not os.path.exists(savelabelpath):
     os.mkdir(savelabelpath)
-sizes=1284
+sizes=1280
+print sizes
 #with open('/data_1/weizhang/data/测试集/cuted/保定/0816up1/jslist') as jslist:
 #    lines=jslist.readlines()
 lines=os.listdir(jspath)
@@ -42,8 +43,8 @@ for line1 in lines:
     #print name
     name=name.strip()
     imgsz=[img.shape[1],img.shape[0]]
-    Size=[img.shape[1]/4,img.shape[0]/4]
-    #Size=[sizes,sizes]
+    #Size=[img.shape[1]/4,img.shape[0]/4]
+    Size=[sizes,sizes]
     #print imgsz,Size
     MaxlightSize=150
     if Size[0] <=MaxlightSize or Size[1] <=MaxlightSize :

@@ -21,9 +21,6 @@ if __name__ == '__main__':
                     shutil.copy('/media/e/weizhang/data/QHD/0808/src/'+names2+'.jpg','/media/e/weizhang/data/QHD/0808/jiaojingori/img/'+names2+'.jpg')
                     fimg.write('/media/e/weizhang/data/QHD/0808/jiaojingori/img/'+names2+'.jpg'+'\n')
                     fcp.write(name[1]+'\n')
-
-
-
-                  
+        
 
 

@@ -1,7 +1,7 @@
 #coding=utf-8
 import sys
 import os  
-f=open('/home/xuzhenghao/下载/系统识别错误的算法图--疑似和未违法人工改判违法/闯红灯.list','w')
+f=open('/data_1/weizhang/data/错图积累/0918/1625闯红灯.txt','w')
 def list_all_files(now_dir):  
     if os.path.isfile(now_dir):  
         print now_dir
@@ -17,4 +17,4 @@ def list_all_files(now_dir):
                 list_all_files(i)  
 #f.close()  
 #list_all_files(sys.argv[1])  /media/e/weizhang/data/baoding/0611
-list_all_files('/home/xuzhenghao/下载/系统识别错误的算法图--疑似和未违法人工改判违法/闯红灯')
+list_all_files('/data_1/weizhang/data/错图积累/0918/1625闯红灯')
