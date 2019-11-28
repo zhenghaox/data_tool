@@ -10,9 +10,9 @@ def find_last(string, str):
             return last_position
         last_position = position
 
-path='/data_1/weizhang/data/all/后加/lichao_xiaolan_0919/classify/train'
-srcimgpath='/data_1/weizhang/data/all/后加/lichao_xiaolan_0919/mark'
-jspath='/data_1/weizhang/data/all/后加/lichao_xiaolan_0919/json'
+path='/data_1/weizhang/data/all/后加/红绿灯标注20191112/未标注/classify'
+srcimgpath='/data_1/weizhang/data/all/后加/红绿灯标注20191112/未标注/mark'
+jspath='/data_1/weizhang/data/all/后加/红绿灯标注20191112/未标注/json'
 lines=os.listdir(jspath)
 # with open('/data_1/weizhang/data/义乌/330700000000330782000115020002/result/123/jslist') as jslist:
 #     lines=jslist.readlines()
@@ -33,6 +33,8 @@ for line in lines:
         print 'img size is 0!!!'
         continue
     num=0
+    if not os.path.exists(path):
+        os.mkdir(path)
     if not os.path.exists(path+'/0/'):
         os.mkdir(path+'/0/')
     if not os.path.exists(path+'/1/'):

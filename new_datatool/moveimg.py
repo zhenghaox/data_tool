@@ -26,9 +26,9 @@ def list_all_files2(now_dir):
                 list_all_files2(i)  
 
 if __name__ == '__main__':
-    ori_imgpath='/data_1/weizhang/data/错图积累/1010/0侯凯_异常输出'
-    src_path='/data_1/weizhang/data/错图积累/1010/new/result/result'
-    out_path='/data_1/weizhang/data/错图积累/1010/new/result/result_renamed2'
+    ori_imgpath='/data_1/weizhang/data/错图积累/1127绍兴张家口/张家口/0侯凯_异常输出'
+    src_path='/data_1/weizhang/data/错图积累/1127绍兴张家口/张家口/返回'
+    out_path='/data_1/weizhang/data/错图积累/1127绍兴张家口/张家口/返回_renamed'
     #run_path='/data_2/work/weizhang/share/model/加密/cryptopp_test'
     list_all_files(src_path)
     list_all_files2(ori_imgpath)

@@ -18,11 +18,7 @@ if not os.path.exists(saveimgpath):
     os.mkdir(saveimgpath)
 if not os.path.exists(savelabelpath):
     os.mkdir(savelabelpath)
-#sizes=1280
 sizeses={1,2,3,4,320,640,960,1280}
-#print sizes
-#with open('/data_1/weizhang/data/测试集/cuted/保定/0816up1/jslist') as jslist:
-#    lines=jslist.readlines()
 lines=os.listdir(jspath)
 for sizes in sizeses:
     for line1 in lines:

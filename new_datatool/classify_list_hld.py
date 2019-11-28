@@ -1,13 +1,13 @@
 #coding=utf-8
 import os
 import shutil
-
-
+import cv2
+import numpy as np
 
 
 def creatlist():
-        srcpath='/data_1/weizhang/data/红绿灯工程测试/select/0926'
-        savelist='/data_1/weizhang/data/红绿灯工程测试/select/0926.txt'
+        srcpath='/data_1/weizhang/data/红绿灯工程测试/select/1127'
+        savelist='/data_1/weizhang/data/红绿灯工程测试/select/1127.txt'
         f=open(savelist,'w')
         filelist=os.listdir(srcpath)
         for line in filelist:
@@ -16,6 +16,31 @@ def creatlist():
                 for img in imgs:
                         saveimgpath=os.path.join(path,img)
                         f.write(saveimgpath+' '+line+'\n')
+
+                        src_img = cv2.imread(saveimgpath)
+                        if src_img is None:
+                                continue
+                        src_h, src_w, src_c = src_img.shape
+                        if src_h == src_w:
+                                continue
+                        print saveimgpath
+                        dst_w = max(src_h,src_w)
+                        dst_img = np.zeros((dst_w, dst_w,3),dtype=np.uint8)
+                        src_center_x = src_w*0.5
+                        src_center_y = src_h*0.5 
+                        dst_center_x = dst_w*0.5
+                        dst_center_y = dst_w*0.5
+                        offset_x = int(dst_center_x - src_center_x)
+                        offset_y = int(dst_center_y - src_center_y)
+                        if src_h>src_w:
+                                dst_img[:, offset_x:offset_x+src_w, :] = src_img
+                        else:
+                                dst_img[offset_y:offset_y+src_h, :, :] = src_img
+                        cv2.imwrite(saveimgpath,dst_img)
+                        input = dst_img
+                        print input.shape
+                        img_h = input.shape[0]
+                        img_w = input.shape[1]
         return
 
 def creatlist2():

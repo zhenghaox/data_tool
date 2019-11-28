@@ -9,21 +9,24 @@ def find_last(string, str):
         if position == -1:
             return last_position
         last_position = position
-srcimgpath='/data_1/weizhang/data/all/ori/mark/'
+srcimgpath='/data_1/weizhang/data/all/后加/lichao_xiaolan_0919/mark/'
+jspath='/data_1/weizhang/data/all/后加/lichao_xiaolan_0919/json'
 path='/data_1/weizhang/data/all/ori/rmtra/'
-with open('/data_1/weizhang/data/all/ori/jslist') as jslist:
-    lines=jslist.readlines()
-for line in lines:
+lines=os.listdir(jspath)
+#with open('/data_1/weizhang/data/all/ori/jslist') as jslist:
+#    lines=jslist.readlines()
+for line1 in lines:
+    line=os.path.join(jspath,line1)
     name=''
-    name = line[:-1][find_last(line[:-1], '/') + 1:-9]
-    jsfile=open(line[:-1])
+    name = line[find_last(line, '/') + 1:-9]
+    jsfile=open(line)
     jsf=json.load(jsfile)
     obj=jsf['objects']
     img=None
     img=cv2.imread(srcimgpath+name+'.jpg')
     if img is None:
         print srcimgpath+name+'.jpg'
-        name = line[:-1][find_last(line[:-1], '/') + 1:-5]
+        name = line[find_last(line, '/') + 1:-5]
         img=cv2.imread(srcimgpath+name+'.jpg')
         if img is None:
             print srcimgpath+name+'.jpg'
