@@ -6,8 +6,8 @@ import numpy as np
 
 
 def creatlist():
-        srcpath='/data_1/weizhang/data/红绿灯工程测试/select/1127'
-        savelist='/data_1/weizhang/data/红绿灯工程测试/select/1127.txt'
+        srcpath='/data_1/weizhang/data/all/后加/违法_红绿灯_20190902-OK-已检查/新建文件夹/result/all/classify'
+        savelist='/data_1/weizhang/data/all/后加/违法_红绿灯_20190902-OK-已检查/新建文件夹/result/all/classify.txt'
         f=open(savelist,'w')
         filelist=os.listdir(srcpath)
         for line in filelist:

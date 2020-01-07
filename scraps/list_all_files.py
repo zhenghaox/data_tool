@@ -1,7 +1,7 @@
 #coding=utf-8
 import sys
 import os  
-f=open('/data_1/weizhang/data/all/classify/train/10.txt','w')
+f=open('/data_1/weizhang/data/红绿灯工程测试/select/1226neg.list','w')
 def list_all_files(now_dir):  
     if os.path.isfile(now_dir):  
         print now_dir
@@ -17,4 +17,4 @@ def list_all_files(now_dir):
                 list_all_files(i)  
 #f.close()  
 #list_all_files(sys.argv[1])  /media/e/weizhang/data/baoding/0611
-list_all_files('/data_1/weizhang/data/all/classify/train/10')
+list_all_files('/data_1/weizhang/data/红绿灯工程测试/select/1226neg')

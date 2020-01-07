@@ -17,8 +17,8 @@ def list_all_files(now_dir):
             if not os.path.isfile(i):
                 i = now_dir + '/' + i
                 list_all_files(i)     
-src_path='/data_1/weizhang/data/小榄/AgainstRedLight'
-fpl=open('/data_1/weizhang/data/小榄/AgainstRedLight.txt','w')
+src_path='/data_1/weizhang/data/错图积累/无锡所/1209/are/e2'
+fpl=open('/data_1/weizhang/data/错图积累/无锡所/1209/are/e2.txt','w')
 list_all_files(src_path)
 
 for line in list:
@@ -28,10 +28,12 @@ for line in list:
     index1=find_last(line,'/')
     img_name=line[index1+1:]
     print img_name
-    chepai=img_name.split('_')[1]
+    chepai=img_name.split('_')[2]
     # chepai=img_name.split('_')[10]
-    sbbh=img_name.split('_')[0]
+    #sbbh=img_name.split('_')[0]
+    sbbh='000001'
     label=img_name.split('_')[-1][:-4]
     #fpl.write(line+' '+chepai+' '+sbbh+'\n')
     #fpl.write(line+' '+chepai+' '+label+'\n')
-    fpl.write(line+' '+chepai+' '+sbbh+' '+label+'\n')
+    #fpl.write(line+' '+chepai+' '+sbbh+' '+label+'\n')
+    #fpl.write(chepai+'\n')

@@ -9,8 +9,8 @@ def find_last(string, str):
         if position == -1:
             return last_position
         last_position = position
-srcimgpath='/data_1/weizhang/data/all/后加/lichao_xiaolan_0919/mark/'
-jspath='/data_1/weizhang/data/all/后加/lichao_xiaolan_0919/json'
+srcimgpath='/data_1/weizhang/data/all/后加/违法_红绿灯_20190822_OK-已检查/新建文件夹/result/mark/'
+jspath='/data_1/weizhang/data/all/后加/违法_红绿灯_20190822_OK-已检查/新建文件夹/result/json'
 path='/data_1/weizhang/data/all/ori/rmtra/'
 lines=os.listdir(jspath)
 #with open('/data_1/weizhang/data/all/ori/jslist') as jslist:
@@ -32,6 +32,7 @@ for line1 in lines:
             print srcimgpath+name+'.jpg'
             continue
     name=name.strip()
+    print name
     imgsz=[img.shape[1],img.shape[0]]
     num=0
     for x in obj:

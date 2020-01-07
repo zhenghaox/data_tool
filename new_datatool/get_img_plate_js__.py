@@ -17,8 +17,8 @@ def list_all_files(now_dir):
             if not os.path.isfile(i):
                 i = now_dir + '/' + i
                 list_all_files(i)     
-src_path='/data_1/weizhang/data/错图积累/1127绍兴张家口/张家口/0侯凯_异常输出'
-fpl=open('/data_1/weizhang/data/错图积累/1127绍兴张家口/张家口/0侯凯_异常输出.txt','w')
+src_path='/data_1/weizhang/data/错图积累/昆山/16252(1)'
+fpl=open('/data_1/weizhang/data/错图积累/昆山/16252(1).txt','w')
 list_all_files(src_path)
 dic = {}
 for line in list:
@@ -33,8 +33,7 @@ for line in list:
     # sbbh=img_name.split('_')[0]
     # label=img_name.split('_')[-1][:-4]
     imgindex=img_name.split('_')[-2]
-
-    #imgindex=''
+    # imgindex='@@@@@@@@@@@@@@'
     key=img_name.replace(imgindex,'all')
     dic.setdefault(key,[]).append(line)
 for key1, values in dic.items():
@@ -42,13 +41,13 @@ for key1, values in dic.items():
     img_name=values[0][index1+1:]
 
     chepai=img_name.split('_')[1]
-    #chepai=img_name.split('_')[7]
+    #chepai=img_name.split('_')[10]
     sbbh=img_name.split('_')[0]
     #sbbh='000001'
     label=img_name.split('_')[-1][:-4]  
     imgindex=img_name.split('_')[-2]
 
-    if  len(values)==1:
+    if  1 or len(values)==1:
         fpl.write(str(values[0])+' '+chepai+' '+sbbh+' '+label+'\n')
     elif len(values)==2:
         fpl.write(str(values[0]).replace(imgindex,'a1')+' '+str(values[1]).replace(values[1].split('_')[-2],'a2')+' '+chepai+' '+sbbh+' '+label+'\n')
